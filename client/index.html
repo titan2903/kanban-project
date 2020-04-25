@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- Script vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- title -->
+    <title>Kanban</title>
+</head>
+
+<body>
+    <div class="container-satu">
+        <div class="kolom-utama">
+            <h2>Judul Artikel</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore ex reprehenderit officiis natus
+                doloremque quod commodi, sapiente quibusdam minus omnis fugiat, et necessitatibus recusandae esse.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, fuga? Vel deleniti debitis distinctio
+                repellendus assumenda consequatur animi, delectus nesciunt saepe nulla fugiat corporis velit voluptas
+                dolorum officia, ipsam cupiditate repellat. Fugit illum maxime similique deserunt doloribus facere
+                aperiam consequuntur?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, necessitatibus voluptate laboriosam
+                inventore minima ducimus quidem molestias nam? Eum placeat molestias, cumque numquam sed illo illum in
+                atque aspernatur ratione.</p>
+        </div>
+        <div class="sidebar-satu">
+            <h3>Sidebar satu</h3>
+            <ul>
+                <li><a href="">Link 1</a></li>
+                <li><a href="">Link 2</a></li>
+                <li><a href="">Link 3</a></li>
+                <li><a href="">Link 4</a></li>
+                <li><a href="">Link 5</a></li>
+            </ul>
+        </div>
+        <div class="sidebar-dua">
+            <h3>Sidebar Dua</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque doloremque illum deleniti ut, itaque
+                porro!</p>
+        </div>
+    </div>
+
+    <div class="container-dua">
+        <div class="child satu">
+            <h4>Child satu</h4>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa tenetur, in velit nulla ut a tempora
+                dignissimos enim sequi blanditiis fugit, sit iste dolores temporibus similique. Totam reiciendis
+                explicabo ea!
+            </p>
+        </div>
+        <div class="child dua">
+            <h4>Child dua</h4>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum, nulla ad eius in ducimus nihil
+                ipsa provident, deleniti quasi suscipit iste dicta tenetur modi necessitatibus velit deserunt rem quos!
+            </p>
+        </div>
+        <div class="child tiga">
+            <h4>Child tiga</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ipsa aperiam perferendis deserunt nam at
+                ratione ab placeat libero recusandae eius velit dolor enim assumenda inventore dicta, omnis cumque non.
+            </p>
+        </div>
+    </div>
+
+    <!-- Centering -->
+    <div class="container-tiga">
+        <div class="kotak"><span>Hello Human! Titanio Yudista</span>
+        </div>
+    </div>
+
+    <!-- vue testing -->
+    <div id="app">
+        {{ message }}
+
+        <h3>Handle user Input</h3>
+        <input type="text" v-model="message">
+
+        <h3>Show Content</h3>
+        <span v-text="content"></span>
+        <span v-html="content"></span>
+
+        <h2>Conditional</h2>
+        <span v-if="data === 'A'">conditional if = A</span>
+        <span v-else-if="data === 'B'">conditional else if = B</span>
+        <span v-else>conditional else</span>
+
+        <!-- Show -->
+        <span v-show="seen">Show Vue</span>
+        <span v-if="seen">Show Vue</span>
+
+        <ul v-show="seen">
+            <li>Show A</li>
+            <li>Show B</li>
+        </ul>
+
+        <ul v-show="seen">
+            <li>Show C</li>
+            <li>Show D</li>
+        </ul>
+
+        <!-- Event -->
+        <h1>Event</h1>
+        <input type="text" v-model="animal_input">
+        <button @click="addanimal">Add Animal</button>
+
+        <!-- Looping -->
+        <h1>Looping</h1>
+        <div v-for="animal in animals">
+            <span>{{animal}}</span>
+        </div>
+
+        <div v-for="(student, i) in students" :key='i'>
+            <span>{{student.name}} ke {{student.id}}</span>
+        </div>
+
+    </div>
+
+    <!-- vue script JS -->
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                content: "<b> Bold Content </b>",
+                data: 'A',
+                seen: true,
+                animals: ['Ayam', 'Bebek', 'Kuda', 'Kelinci'],
+                animal_input: '',
+                students: [{ id: 1, name: 'Titanio' }, { id: 2, name: 'Yudista' }]
+            },
+            methods: {
+                addanimal() {
+                    this.animals.push(this.animal_input)
+                }
+            }
+        })
+    </script>
+
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</body>
+
+</html>
